@@ -1,14 +1,9 @@
 import "./App.css";
 
-import {atom, useRecoilState} from "recoil"
+import {useRecoilState} from "recoil"
+import {countState} from "./atom";
 
-
-const countState = atom({
-    key    : "count",
-    default: 10
-});
-
-function Counter() {
+const Counter = () => {
     const [count, setCount] = useRecoilState(countState);
     return (
         <div>
@@ -22,7 +17,7 @@ function Counter() {
     )
 }
 
-function DisplayCounter() {
+const DisplayCounter = () => {
     const [count] = useRecoilState(countState);
     return <div>{count}</div>
 }
